@@ -55,9 +55,9 @@
     edital: {
       publicacao: "",
       inscricoes: "",
-      prova:      "",
+      prova:      "7 e 14 de março",
       taf:        "",
-      provaISO:   ""
+      provaISO:   "2027-03-07T08:00:00-03:00"   // 1º dia de prova; 8h = horário usual, confira no edital
     }
   };
 

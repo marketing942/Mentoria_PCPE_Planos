@@ -16,7 +16,7 @@
 <meta name="theme-color" content="#08090E">
 
 <title>Mentoria PCPE — o plano de combate para a Polícia Civil de Pernambuco | CPPEM</title>
-<meta name="description" content="Mentoria PCPE com o Prof. Everton Mota: cronograma individual, metas diárias, mentoria ao vivo e a plataforma CPPEM. 1.315 vagas autorizadas. Planos Operacional, Tático e Supremo.">
+<meta name="description" content="Mentoria PCPE com o Prof. Everton Mota: cronograma individual, metas diárias, mentoria ao vivo e a plataforma CPPEM. Edital publicado: 1.315 vagas, prova em 7 e 14 de março de 2027. Planos Operacional, Tático e Supremo.">
 
 <link rel="icon" href="public/favicon.ico" sizes="48x48">
 <link rel="icon" href="public/favicon-192.png" type="image/png" sizes="192x192">
@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="CPPEM Concursos Públicos">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Mentoria PCPE — o plano de combate para conquistar o distintivo">
-<meta property="og:description" content="1.315 vagas autorizadas. Cronograma individual, metas diárias, mentoria ao vivo e a plataforma CPPEM.">
+<meta property="og:description" content="Edital publicado: 1.315 vagas, prova em 7 e 14 de março de 2027. Cronograma individual, metas diárias, mentoria ao vivo e a plataforma CPPEM.">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,6 +93,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero__grid" aria-hidden="true"></div>
   <div class="hero__scan" aria-hidden="true"></div>
   <div class="hero__dawn" aria-hidden="true"></div>
+  <!-- o reflexo das sirenes: vermelho à esquerda, azul à direita, alternando -->
+  <div class="sirene" aria-hidden="true"><i class="sirene__luz sirene__luz--v"></i><i class="sirene__luz sirene__luz--a"></i></div>
   <canvas class="hero__fx" id="fx" aria-hidden="true"></canvas>
 
   <div class="hero__stage">
@@ -102,8 +104,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <i class="alerta__ponto" aria-hidden="true"></i>
         <b>Lançou o edital da PCPE</b>
         <i class="alerta__sep" aria-hidden="true"></i>
-        <span class="alerta__extra">o relógio já está correndo</span>
+        <span class="alerta__extra">prova em 7 e 14 de março</span>
       </span>
+
+      <!-- GIROFLEX: a barra de luz da viatura da PCPE. Decorativo. -->
+      <div class="giroflex anim d0" aria-hidden="true">
+        <i class="giroflex__lado giroflex__lado--v"><b></b><b></b><b></b></i>
+        <i class="giroflex__meio"></i>
+        <i class="giroflex__lado giroflex__lado--a"><b></b><b></b><b></b></i>
+      </div>
 
       <h1 class="titulo" aria-label="Mentoria PCPE">
         <span class="titulo__palco" aria-hidden="true">
@@ -222,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Só aparece com CONFIG.edital.provaISO preenchido: contagem inventada
            seria número falso na cara do candidato. -->
       <div class="contagem" id="contagem" hidden>
-        <span class="contagem__rot">Até a prova objetiva</span>
+        <span class="contagem__rot">Até o 1º dia de prova</span>
         <div class="contagem__num" aria-live="off">
           <div><b data-c="d">00</b><span>dias</span></div>
           <div><b data-c="h">00</b><span>horas</span></div>

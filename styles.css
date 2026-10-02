@@ -705,6 +705,68 @@ html.is-pulado .hero__dawn { animation: dawn-respira 6s var(--ease) infinite !im
 html.is-pulado .hero .shine::after { animation: shine-sweep 4.6s var(--ease) infinite !important; }
 
 /* =========================================================
+   SIRENES DA PCPE — o giroflex e o reflexo
+   ---------------------------------------------------------
+   ⚠️ LUZ QUE PISCA: abaixo de 3 flashes por segundo (WCAG
+   2.3.1). Cada ciclo de 1,6s tem um "pisca-pisca" duplo de
+   cada cor: 4 flashes / 1,6s = 2,5 por segundo. O reflexo
+   grande das laterais NÃO estoura: acende e apaga em rampa e
+   é translúcido. Quem pediu menos movimento vê tudo parado.
+   Entra depois da abertura (--resto), para não brigar com as
+   duas batidas do título.
+   ========================================================= */
+.sirene { position: absolute; inset: 0; z-index: -1; pointer-events: none; mix-blend-mode: screen; }
+.sirene__luz { position: absolute; top: -12%; width: 62%; height: 95%; opacity: 0; }
+.sirene__luz--v { left: -16%; background: radial-gradient(closest-side, rgba(232,40,52,.30), rgba(232,40,52,.10) 55%, transparent); }
+.sirene__luz--a { right: -16%; background: radial-gradient(closest-side, rgba(46,124,255,.32), rgba(46,124,255,.10) 55%, transparent); }
+.sirene__luz--v { animation: reflexo-v 1.6s linear calc(var(--resto) + .3s) infinite; }
+.sirene__luz--a { animation: reflexo-a 1.6s linear calc(var(--resto) + .3s) infinite; }
+@keyframes reflexo-v { 0%, 100% { opacity: 0; } 8% { opacity: 1; } 14% { opacity: .45; } 20% { opacity: .95; } 34% { opacity: 0; } }
+@keyframes reflexo-a { 0%, 48% { opacity: 0; } 56% { opacity: 1; } 62% { opacity: .45; } 68% { opacity: .95; } 82%, 100% { opacity: 0; } }
+
+.giroflex {
+  position: relative; display: flex; align-items: stretch; gap: 4px;
+  width: clamp(230px, 32vw, 420px); height: 22px; margin: clamp(14px, 2.2vh, 22px) auto 0; padding: 4px;
+  background: linear-gradient(180deg, #1A1E2A, #07080C);
+  border-radius: 11px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.10), 0 6px 18px rgba(0,0,0,.6);
+}
+.giroflex__meio { width: 14%; border-radius: 3px; background: linear-gradient(180deg, #2A2F3D, #12151E); }
+.giroflex__lado { flex: 1; display: flex; gap: 3px; }
+.giroflex__lado b { flex: 1; border-radius: 3px; }
+.giroflex__lado--v b { background: #4A1015; }
+.giroflex__lado--a b { background: #0F2350; }
+.giroflex__lado--v b { animation: lampada-v 1.6s steps(1, end) calc(var(--resto) + .3s) infinite; }
+.giroflex__lado--a b { animation: lampada-a 1.6s steps(1, end) calc(var(--resto) + .3s) infinite; }
+/* steps(1): cada quadro vale até o próximo. Vermelho acende em 0% e 12%, apaga em 6% e 18%. */
+@keyframes lampada-v {
+  0%, 12%            { background: #FF3B47; box-shadow: 0 0 10px 2px rgba(255,59,71,.9), 0 0 26px 6px rgba(255,59,71,.45); }
+  6%, 18%, 100%      { background: #4A1015; box-shadow: none; }
+}
+/* azul acende em 50% e 62%, apaga em 56% e 68%: 4 flashes por ciclo de 1,6s = 2,5/s */
+@keyframes lampada-a {
+  50%, 62%           { background: #4C8DFF; box-shadow: 0 0 10px 2px rgba(76,141,255,.9), 0 0 26px 6px rgba(76,141,255,.45); }
+  0%, 56%, 68%, 100% { background: #0F2350; box-shadow: none; }
+}
+/* o selo do topo também pisca nas duas cores */
+.alerta--b .alerta__ponto { animation: ponto-sirene 1.6s steps(1, end) infinite; }
+@keyframes ponto-sirene {
+  0%  { background: #FF3B47; box-shadow: 0 0 12px #FF3B47; }
+  50% { background: #4C8DFF; box-shadow: 0 0 12px #4C8DFF; }
+}
+/* pulou a abertura: as sirenes seguem tocando (o is-pulado zera as animações da hero) */
+html.is-pulado .sirene__luz--v { animation: reflexo-v 1.6s linear infinite !important; }
+html.is-pulado .sirene__luz--a { animation: reflexo-a 1.6s linear infinite !important; }
+html.is-pulado .giroflex__lado--v b { animation: lampada-v 1.6s steps(1, end) infinite !important; }
+html.is-pulado .giroflex__lado--a b { animation: lampada-a 1.6s steps(1, end) infinite !important; }
+html.is-pulado .alerta--b .alerta__ponto { animation: ponto-sirene 1.6s steps(1, end) infinite !important; }
+@media (prefers-reduced-motion: reduce) {
+  .sirene { display: none; }
+  .giroflex__lado--v b { background: #B3222C; }
+  .giroflex__lado--a b { background: #2D5FC0; }
+}
+
+/* =========================================================
    FAIXA CORRIDA
    ========================================================= */
 .strip { position: relative; z-index: 2; overflow: hidden; padding: 15px 0; background: #0A0C13; border-block: 1px solid var(--border); }
