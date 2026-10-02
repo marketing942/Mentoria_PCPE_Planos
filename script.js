@@ -286,7 +286,7 @@
     var ctx = cv.getContext("2d");
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var W = 0, H = 0, vivo = true, ultimo = 0;
-    var CORES = [[255, 240, 205], [240, 220, 176], [201, 174, 122], [230, 150, 80], [196, 112, 63]];
+    var CORES = [[255, 240, 205], [240, 220, 176], [201, 174, 122], [150, 190, 228], [91, 140, 184]];
     var sprites = CORES.map(function (c) {
       var s = document.createElement("canvas"); s.width = s.height = 64;
       var g = s.getContext("2d"), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
@@ -582,7 +582,7 @@
   /* =========================================================
      8 · ATMOSFERA — brasas da página
      ========================================================= */
-  var TONS = ["rgba(201,174,122,.9)", "rgba(175,146,86,.85)", "rgba(196,112,63,.85)"];
+  var TONS = ["rgba(201,174,122,.9)", "rgba(175,146,86,.85)", "rgba(110,160,205,.85)"];
   function semear(alvo, quantidade) {
     if (!alvo || reduced) return;
     for (var b = 0; b < quantidade; b++) {
