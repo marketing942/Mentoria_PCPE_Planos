@@ -7,7 +7,7 @@
      4. FX          faíscas e brasas da hero, em canvas
      5. PÁGINA      header, progresso, parallax, dock
      6. REVEAL      entrada ao rolar, corrida, contagem de números
-     7. PEÇAS       plataforma, galeria, estrelas, contagem da prova
+     7. PEÇAS       plataforma, estrelas, contagem da prova
      8. ATMOSFERA   brasas da página
    ========================================================= */
 (function () {
@@ -452,7 +452,7 @@
   function ligarObservadores() {
     if (ligado) return;
     ligado = true;
-    var alvos = $$(".section__head, .motivo, .corrida, .linha-edital, .vaga, .etapa, .frente, .plat, .duo__foto, .duo__texto, .galeria, .plano, .faq__item, .final__inner");
+    var alvos = $$(".section__head, .motivo, .corrida, .linha-edital, .vaga, .etapa, .frente, .plat, .duo__foto, .duo__texto, .plano, .faq__item, .final__inner");
     if (reduced || !("IntersectionObserver" in window)) {
       $$("[data-corrida]").forEach(function (c) { c.classList.add("is-on"); });
       return;
@@ -532,31 +532,6 @@
         } else parar();
       }, { threshold: .35 }).observe(caixa);
     } else rodar();
-  })();
-
-  /* ─── galeria de aprovados: duas fileiras, cópia aria-hidden para o laço ─── */
-  (function galeria() {
-    var alvo = document.getElementById("galeria");
-    if (!alvo) return;
-    [[1, 7], [8, 14]].forEach(function (faixa, idx) {
-      var fila = document.createElement("div");
-      fila.className = "fila" + (idx ? " fila--volta" : "");
-      var trilho = document.createElement("div");
-      trilho.className = "fila__track";
-      for (var rep = 0; rep < 2; rep++) {
-        for (var n = faixa[0]; n <= faixa[1]; n++) {
-          var fig = document.createElement("figure");
-          fig.className = "aluno";
-          if (rep) fig.setAttribute("aria-hidden", "true");
-          var img = new Image(480, 600);
-          img.src = "public/alunos/aluno-" + (n < 10 ? "0" : "") + n + ".webp";
-          img.loading = "lazy"; img.decoding = "async";
-          img.alt = rep ? "" : "Aluno aprovado com o Prof. Everton Mota";
-          fig.appendChild(img); trilho.appendChild(fig);
-        }
-      }
-      fila.appendChild(trilho); alvo.appendChild(fila);
-    });
   })();
 
   /* ─── estrelas em volta do Supremo ─── */

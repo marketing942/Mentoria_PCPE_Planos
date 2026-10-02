@@ -978,22 +978,6 @@ html[data-modelo="b"] .vaga__nota { color: #F2A596; box-shadow: inset 0 0 0 1px 
 .stat span { display: block; margin-top: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--text-mute); }
 
 /* =========================================================
-   APROVADOS — duas fileiras em sentidos opostos
-   ========================================================= */
-.galeria { display: flex; flex-direction: column; gap: 14px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.fila__track { display: flex; gap: 14px; width: max-content; animation: marquee 60s linear infinite; }
-.fila--volta .fila__track { animation-direction: reverse; }
-.galeria:hover .fila__track { animation-play-state: paused; }
-.aluno { width: 200px; flex-shrink: 0; }
-.aluno img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  filter: grayscale(.25) contrast(1.03); transition: filter var(--t);
-}
-.aluno:hover img { filter: none; }
-.aprovados__rodape { margin-top: 44px; }
-
-/* =========================================================
    OS PLANOS — Operacional · SUPREMO · Tático
    ---------------------------------------------------------
    O Supremo vai no CENTRO e é a única peça da página com aura
@@ -1332,7 +1316,6 @@ html[data-modelo="b"] .vaga__nota { color: #F2A596; box-shadow: inset 0 0 0 1px 
   .plano--supremo .plano__corpo { padding: 46px 22px 28px; }
   .plano--supremo .plano__valor { font-size: 46px; }
   .plano__desc { min-height: 0; }
-  .aluno { width: 150px; }
   .vaga__num { font-size: 60px; }
   .footer__inner { grid-template-columns: 1fr; }
   .contagem__num div { min-width: 56px; }

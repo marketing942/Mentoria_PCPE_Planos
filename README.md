@@ -48,7 +48,7 @@ usados na página da PMPE. Se a PCPE tiver links próprios, troque no `CONFIG.pl
 ## A abertura
 
 "MENTORIA" bate no vidro e "PCPE" sobe e colide. Toca uma vez por sessão. `?abertura=0` pula e
-`?abertura=1` força. Logo abaixo do hero vem a prova social (os aprovados).
+`?abertura=1` força.
 
 ## Medição (dataLayer)
 
@@ -59,5 +59,6 @@ container de GTM das landings CPPEM.
 
 - **Deploy**: criar um projeto na Vercel para esta pasta e definir o domínio (ex.: `pcpe.cppem.com.br`).
 - **og:image** 1200×630 com URL absoluta, para o preview no WhatsApp e no Instagram.
-- **Fotos dos aprovados** (`public/alunos/`): são as mesmas da PMPE e mostram alunos de farda da PM.
-  Se houver fotos de aprovados da Polícia Civil, vale trocar.
+- **Prova social**: a seção dos aprovados (fotos de alunos com o professor) foi tirada, porque ainda não
+  há fotos suficientes de aprovados da Polícia Civil. Quando houver, ela pode voltar (está na página da
+  PMPE).
